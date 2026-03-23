@@ -1,0 +1,144 @@
+﻿---
+---
+<header id="site-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-2">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <a href="#inicio" class="group flex items-center space-x-3">
+      <img src="/logosSfundo.avif" alt="Marcio Trombeta Logo" class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105" />
+      <div class="flex items-center space-x-2">
+        <span id="nav-brand-label" class="text-[10px] md:text-sm font-bold text-white transition-colors duration-300 tracking-widest uppercase mb-0">Massoterapeuta</span>
+        <span id="nav-brand-name" class="text-lg md:text-xl font-serif font-bold text-white transition-colors duration-300">Marcio</span>
+      </div>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center space-x-10">
+      <a href="#inicio" class="nav-link relative text-[11px] font-bold text-white transition-colors duration-300 uppercase tracking-[0.2em] group hover:text-terracotta">
+        InÃ­cio
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#sobre" class="nav-link relative text-[11px] font-bold text-white transition-colors duration-300 uppercase tracking-[0.2em] group hover:text-terracotta">
+        Sobre
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#tecnicas" class="nav-link relative text-[11px] font-bold text-white transition-colors duration-300 uppercase tracking-[0.2em] group hover:text-terracotta">
+        TÃ©cnicas
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#contato" class="nav-link relative text-[11px] font-bold text-white transition-colors duration-300 uppercase tracking-[0.2em] group hover:text-terracotta">
+        Contato
+        <span class="absolute -bottom-1 left-0 w-0 h-[1px] bg-terracotta transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#contato" class="px-6 py-2 bg-terracotta text-white text-[10px] font-bold uppercase tracking-widest rounded-full hover:bg-olive transition-all duration-300">
+        Agendar
+      </a>
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <button id="mobile-menu-btn" class="md:hidden text-white transition-colors duration-300" aria-label="Abrir menu">
+      <svg id="icon-menu" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <svg id="icon-close" class="w-7 h-7 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav" class="hidden absolute top-full left-0 w-full bg-white shadow-xl md:hidden">
+    <nav class="flex flex-col p-6 space-y-4">
+      <a href="#inicio" class="text-base sm:text-lg font-medium border-b border-gray-100 pb-2 mobile-link">InÃ­cio</a>
+      <a href="#sobre"  class="text-base sm:text-lg font-medium border-b border-gray-100 pb-2 mobile-link">Sobre</a>
+      <a href="#tecnicas" class="text-base sm:text-lg font-medium border-b border-gray-100 pb-2 mobile-link">TÃ©cnicas</a>
+      <a href="#contato"  class="text-base sm:text-lg font-medium pb-2 mobile-link">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const mobileBtn = document.getElementById('mobile-menu-btn')!;
+  const mobileNav = document.getElementById('mobile-nav')!;
+  const iconMenu  = document.getElementById('icon-menu')!;
+  const iconClose = document.getElementById('icon-close')!;
+  const navLinks = document.querySelectorAll('.nav-link');
+  const brandLabel = document.getElementById('nav-brand-label');
+  const brandName = document.getElementById('nav-brand-name');
+
+  let lastScrollY = window.scrollY;
+
+  // Scroll-aware header & Hide on scroll behavior
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    // Background and padding appearance + text color
+    if (currentScrollY > 50) {
+      header.classList.add('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'py-2');
+      header.classList.remove('py-4');
+      
+      // Change text color to dark
+      navLinks.forEach(link => {
+        link.classList.remove('text-white');
+        link.classList.add('text-graphite/60');
+      });
+      mobileBtn.classList.remove('text-white');
+      mobileBtn.classList.add('text-graphite');
+      if (brandLabel) {
+        brandLabel.classList.remove('text-white');
+        brandLabel.classList.add('text-terracotta');
+      }
+      if (brandName) {
+        brandName.classList.remove('text-white');
+        brandName.classList.add('text-graphite');
+      }
+    } else {
+      header.classList.remove('bg-white/90', 'backdrop-blur-xl', 'shadow-sm', 'py-2');
+      header.classList.add('py-4');
+      
+      // Change text color to white
+      navLinks.forEach(link => {
+        link.classList.add('text-white');
+        link.classList.remove('text-graphite/60');
+      });
+      mobileBtn.classList.add('text-white');
+      mobileBtn.classList.remove('text-graphite');
+      if (brandLabel) {
+        brandLabel.classList.add('text-white');
+        brandLabel.classList.remove('text-terracotta');
+      }
+      if (brandName) {
+        brandName.classList.add('text-white');
+        brandName.classList.remove('text-graphite');
+      }
+    }
+
+    // Hide when scrolling down, show when scrolling up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down
+      header.classList.add('-translate-y-full');
+    } else {
+      // Scrolling up
+      header.classList.remove('-translate-y-full');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+
+  // Mobile menu toggle
+  mobileBtn.addEventListener('click', () => {
+    const isOpen = !mobileNav.classList.contains('hidden');
+    mobileNav.classList.toggle('hidden', isOpen);
+    iconMenu.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+  });
+
+  // Close on link click
+  document.querySelectorAll('.mobile-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.classList.add('hidden');
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    });
+  });
+</script>
+

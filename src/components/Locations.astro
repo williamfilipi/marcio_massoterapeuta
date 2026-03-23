@@ -1,0 +1,80 @@
+---
+const locations = [
+  {
+    type: "Principal",
+    name: "Clínica Sublime",
+    address: "Rua Rozo Lagoa, 68",
+    neighborhood: "Imirim, São Paulo - SP",
+    info: "Ambiente principal preparado para todas as terapias.",
+    mapLink: "https://maps.google.com/?q=Rua+Rozo+Lagoa+68+Imirim+Sao+Paulo"
+  },
+  {
+    type: "Opcional",
+    name: "Consultório Paulista",
+    address: "Alameda Santos, 211 - Conjunto 1601",
+    neighborhood: "Paraíso, São Paulo - SP",
+    info: "Próximo à estação Brigadeiro do Metrô.",
+    mapLink: "https://maps.google.com/?q=Alameda+Santos+211+Paraiso+Sao+Paulo"
+  }
+];
+---
+<section id="locais" class="py-32 bg-primary relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-20">
+      <div class="max-w-2xl reveal">
+        <span class="text-[12px] font-bold text-graphite uppercase tracking-[0.4em] mb-4 block">
+          Onde Atendemos
+        </span>
+        <h2 class="text-5xl md:text-7xl font-serif text-terracotta mb-6 tracking-tighter">
+          Nossos <span class="italic font-light">Espaços</span>.
+        </h2>
+      </div>
+      <p class="text-graphite/60 font-light max-w-xs mt-6 md:mt-0 reveal">
+        Dois endereços estrategicamente localizados para sua maior comodidade.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10">
+      {locations.map((loc, i) => (
+        <a 
+          href={loc.mapLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-12 rounded-[48px] bg-white border border-olive/5 hover:border-terracotta/20 hover:shadow-xl transition-all duration-700 group relative reveal"
+          style={`transition-delay: ${i * 0.2}s`}
+        >
+          <!-- Accent decoration -->
+          <div class="absolute top-0 right-12 w-16 h-1 bg-terracotta/20 group-hover:bg-terracotta transition-colors duration-500 rounded-b-lg"></div>
+
+          <div class="flex items-center space-x-3 mb-8">
+            <svg class="w-6 h-6 text-terracotta" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            <span class="text-[10px] font-bold text-terracotta uppercase tracking-widest bg-terracotta/10 px-3 py-1 rounded-full">
+              Atendimento {loc.type}
+            </span>
+          </div>
+
+          <h3 class="text-3xl font-serif text-terracota mb-2 group-hover:text- transition-colors duration-500">{loc.name}</h3>
+          
+          <div class="space-y-1 mb-8">
+            <p class="text-lg text-graphite font-medium">{loc.address}</p>
+            <p class="text-graphite/70">{loc.neighborhood}</p>
+          </div>
+
+          <p class="text-graphite/60 font-light text-lg italic mb-8">
+            {loc.info}
+          </p>
+
+          <div class="flex items-center space-x-2 text-terracotta font-bold text-[10px] uppercase tracking-widest">
+            <span>Ver no Mapa</span>
+            <svg class="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

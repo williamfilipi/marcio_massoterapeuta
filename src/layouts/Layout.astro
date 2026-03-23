@@ -1,0 +1,133 @@
+---
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'Marcio Trombeta | Massoterapeuta Profissional em São Paulo',
+  description = 'Especialista em Massagem Relaxante, Shiatsu e Massagem Tântrica. Atendimento em São Paulo – Zona Norte. Agende sua sessão.',
+  image = 'https://i.ibb.co/m58SRpTL/Gemini-Generated-Image-frkq1frkq1frkq1f.png',
+  canonical = 'https://marciotrombeta.com.br/',
+} = Astro.props;
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="massoterapeuta são paulo, massagem relaxante, shiatsu, massagem tÃ¢ntrica, zona norte sp, marcio trombeta" />
+    <meta name="author" content="Marcio Trombeta" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Marcio Trombeta Massoterapia" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/avif" href="/logoFundo.avif" />
+    <link rel="icon" type="image/png" href="/logoFundo.avif" />
+    <link rel="shortcut icon" href="/logosSfundo.avif" />
+
+    <!-- Fonts preload -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org JSON-LD: LocalBusiness -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["HealthAndBeautyBusiness", "LocalBusiness"],
+        "name": "Marcio Trombeta Massoterapia",
+        "description": "Especialista em Massagem Relaxante, Shiatsu e Massagem TÃ¢ntrica. Atendimento em SÃ£o Paulo â€“ Zona Norte.",
+        "url": "https://marciotrombeta.com.br",
+        "telephone": "+55-11-99837-4338",
+        "email": "Marciotrombeta@yahoo.com.br",
+        "image": "https://i.ibb.co/m58SRpTL/Gemini-Generated-Image-frkq1frkq1frkq1f.png",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Rozo Lagoa, 68",
+          "addressLocality": "SÃ£o Paulo",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "-23.520",
+          "longitude": "-46.630"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "10:00",
+            "closes": "21:00"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "ServiÃ§os de Massoterapia",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem Relaxante" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Shiatsu" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem TÃ¢ntrica" } }
+          ]
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Marcio Trombeta",
+          "jobTitle": "Massoterapeuta e Terapeuta Master"
+        }
+      }
+    </script>
+  </head>
+
+  <body class="bg-primary text-graphite font-sans selection:bg-terracotta/20 selection:text-terracotta">
+    <slot />
+    <WhatsAppButton />
+
+    <!-- Scroll-reveal Intersection Observer -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+        );
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+          observer.observe(el);
+        });
+      });
+    </script>
+  </body>
+</html>

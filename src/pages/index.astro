@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Techniques from '../components/Techniques.astro';
+import Features from '../components/Features.astro';
+import Locations from '../components/Locations.astro';
+import Feedbacks from '../components/Feedbacks.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+---
+
+<Layout
+  title="Marcio Trombeta | Massoterapeuta Profissional â€“ SÃ£o Paulo"
+  description="Especialista em Massagem Relaxante, Shiatsu e Massagem TÃ¢ntrica. Atendimento em SÃ£o Paulo â€“ Zona Norte. Agende sua sessÃ£o agora."
+  canonical="https://marciotrombeta.com.br/"
+>
+  <Header />
+  <main>
+    <Hero />
+    <About />
+    <Techniques />
+    <Features />
+    <Feedbacks />
+    <Locations />
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,123 @@
+﻿---
+const techniques = [
+  {
+    title: "Massagem Relaxante",
+    description: "Técnica focada no alívio de tensões, redução do estresse e relaxamento profundo do corpo e da mente.",
+    image: "/massagemRelaxante.avif",
+    focus: "Alívio e Bem-Estar"
+  },
+  {
+    title: "Shiatsu",
+    description: "Terapia oriental tradicional que utiliza pressão dos dedos nos meridianos do corpo para equilibrar a energia vital e aliviar dores.",
+    image: "/shiatsu.avif",
+    focus: "Equilíbrio Energético"
+  },
+  {
+    title: "Massagem Tántrica",
+    description: "Prática terapêutica que busca o despertar da bioenergia e a conexão profunda do ser, expandindo a consciência e o prazer pela vida.",
+    image: "https://blog.vitoriahoteis.com.br/wp-content/uploads/2025/09/sessao-terapia-ventosas-copos-costas.webp",
+    focus: "Despertar da Bioenergia"
+  }
+];
+
+const whatsappUrl = "https://wa.me/5511998374338?text=Olá,%20Marcio!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20sessão.%20Quais%20horários%20você%20tem%20disponíveis?";
+---
+<section id="tecnicas" class="pt-16 pb-10 md:py-32 bg-primary relative overflow-hidden">
+  <!-- Decorative Grid Background -->
+  <div
+    class="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style="background-image: radial-gradient(#A65D43 1px, transparent 1px); background-size: 40px 40px;"
+  ></div>
+
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-20">
+      <div class="max-w-2xl">
+        <span class="text-[12px] font-bold text-terracotta uppercase tracking-[0.4em] mb-4 block reveal">
+          Menu de Experiências
+        </span>
+        <h2 class="text-5xl md:text-7xl font-serif text-graphite reveal">
+          Técnicas de <span class="italic font-light">Vanguarda</span>.
+        </h2>
+      </div>
+      <p class="text-graphite/60 font-light max-w-xs mt-6 md:mt-0 reveal">
+        Protocolos exclusivos desenvolvidos para resultados imediatos e duradouros.
+      </p>
+    </div>
+
+    <!-- Techniques list -->
+    <div class="relative flex gap-6 overflow-x-auto snap-x snap-mandatory pb-3 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:flex-col md:gap-20 md:overflow-visible md:snap-none">
+      <div class="md:hidden pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 z-10">
+        <div class="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-3 py-2 shadow-sm border border-olive/10 text-graphite/70">
+          <span class="text-[10px] font-bold uppercase tracking-widest">Arraste</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 swipe-hint-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h10m0 0l-4-4m4 4l-4 4" />
+          </svg>
+        </div>
+      </div>
+      {techniques.map((tech) => (
+        <div class="group relative min-w-[calc(100vw-4.5rem)] max-w-[calc(100vw-4.5rem)] shrink-0 snap-center bg-white rounded-[48px] overflow-hidden border border-olive/5 hover:border-terracotta/20 transition-all duration-700 flex flex-col md:min-w-0 md:max-w-none md:flex-row md:min-h-[420px] reveal">
+          <!-- Image -->
+          <div class="w-full md:w-2/5 h-72 md:h-[420px] overflow-hidden relative">
+            <img
+              src={tech.image}
+              alt={`${tech.title} â€“ Marcio Trombeta Massoterapia`}
+              class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-olive/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="w-full md:w-3/5 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
+            <div class="flex items-center space-x-2 mb-4">
+              <div class="w-1 h-1 bg-terracotta rounded-full"></div>
+              <span class="text-[9px] font-bold text-terracotta uppercase tracking-[0.3em]">{tech.focus}</span>
+            </div>
+            <h3 class="text-3xl md:text-4xl font-serif mb-6 text-graphite group-hover:text-terracotta transition-colors duration-500">
+              {tech.title}
+            </h3>
+            <p class="text-graphite/80 font-light text-base leading-relaxed mb-10 max-w-xl">
+              {tech.description}
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+              <a
+                href={`${whatsappUrl} Gostaria de agendar: ${tech.title}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full sm:w-auto px-10 py-4 bg-terracotta text-white rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-500 hover:bg-olive flex items-center justify-center"
+              >
+                Agendar Sessão
+              </a>
+              <div class="hidden sm:flex items-center space-x-2 text-graphite/60">
+                <div class="w-8 h-[1px] bg-graphite/40"></div>
+                <span class="text-[12px] uppercase text-graphite/70 font-bold">Consultar Disponibilidade</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+
+
+
+<style>
+@keyframes swipe-hint {
+  0% { transform: translateX(0); opacity: 0.55; }
+  40% { transform: translateX(10px); opacity: 1; }
+  70% { transform: translateX(0); opacity: 0.55; }
+  100% { transform: translateX(0); opacity: 0.55; }
+}
+.swipe-hint-arrow {
+  animation: swipe-hint 1.6s ease-in-out 0.6s 6;
+}
+@media (prefers-reduced-motion: reduce) {
+  .swipe-hint-arrow { animation: none; }
+}
+</style>
+
+
