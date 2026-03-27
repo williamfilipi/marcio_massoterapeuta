@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import "../styles/global.css";
+---
+
+<Layout
+  title="Política de Privacidade e Termos de Uso | Marcio Trombeta"
+  description="Política de Privacidade e Termos de Uso dos serviços de massoterapia de Marcio Trombeta."
+>
+  <Header />
+
+  <main class="pt-32 pb-20 min-h-screen bg-primary">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="mb-12">
+        <a href="/" class="inline-flex items-center space-x-2 text-[10px] font-bold uppercase tracking-widest text-graphite/70 hover:text-terracotta transition-colors group">
+          <svg class="w-4 h-4 group-hover:-translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"/>
+          </svg>
+          <span>Voltar ao Site</span>
+        </a>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-serif text-terracotta mb-8 tracking-tighter">Política de <span class="italic font-light">Privacidade</span></h1>
+      <div class="prose prose-lg text-graphite/80 font-light leading-relaxed">
+        <p>A sua privacidade é importante para nós. É política do Marcio Trombeta respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site.</p>
+        <h2 class="text-2xl font-serif text-terracotta mt-8 mb-4 tracking-tight">Coleta e Uso de Dados</h2>
+        <p>Solicitamos informações pessoais apenas quando realmente precisamos delas para lhe fornecer um serviço, como agendamentos. Fazemo-lo por meios justos e legais, com o seu conhecimento e consentimento.</p>
+        <h2 class="text-2xl font-serif text-terracotta mt-8 mb-4 tracking-tight">Segurança</h2>
+        <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+        <h2 class="text-2xl font-serif text-terracotta mt-8 mb-4 tracking-tight">Termos de Uso</h2>
+        <p>O uso dos nossos serviços está sujeito à ciência de que os tratamentos oferecidos (Massagem Relaxante, Shiatsu, Massagem Tântrica) possuem caráter estritamente terapêutico e profissional voltado ao bem-estar.</p>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

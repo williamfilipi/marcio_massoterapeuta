@@ -1,4 +1,4 @@
-﻿---
+---
 const techniques = [
   {
     title: "Massagem Relaxante",
@@ -13,11 +13,13 @@ const techniques = [
     focus: "Equilíbrio Energético"
   },
   {
-    title: "Massagem Tántrica",
-    description: "Prática terapêutica que busca o despertar da bioenergia e a conexão profunda do ser, expandindo a consciência e o prazer pela vida.",
-    image: "https://blog.vitoriahoteis.com.br/wp-content/uploads/2025/09/sessao-terapia-ventosas-copos-costas.webp",
-    focus: "Despertar da Bioenergia"
-  }
+  title: "Massagem Tântrica",
+  description: "Prática terapêutica que busca o despertar da bioenergia e a conexão profunda do ser, expandindo a consciência e o prazer pela vida.",
+  image: "/tantrica.avif",
+  focus: "Despertar da Bioenergia",
+  // Alterado de 'object-bottom' para um valor customizado:
+  objectFit: "object-cover object-bottom" 
+}
 ];
 
 const whatsappUrl = "https://wa.me/5511998374338?text=Olá,%20Marcio!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20sessão.%20Quais%20horários%20você%20tem%20disponíveis?";
@@ -46,7 +48,7 @@ const whatsappUrl = "https://wa.me/5511998374338?text=Olá,%20Marcio!%20Vi%20seu
 
     <!-- Techniques list -->
     <div class="relative flex gap-6 overflow-x-auto snap-x snap-mandatory pb-3 -mx-6 px-6 md:mx-0 md:px-0 md:pb-0 md:flex-col md:gap-20 md:overflow-visible md:snap-none">
-      <div class="md:hidden pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 z-10">
+      <div class="md:hidden pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 z-10 animate-swipe-container">
         <div class="flex items-center gap-2 rounded-full bg-white/80 backdrop-blur px-3 py-2 shadow-sm border border-olive/10 text-graphite/70">
           <span class="text-[10px] font-bold uppercase tracking-widest">Arraste</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 swipe-hint-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -60,8 +62,8 @@ const whatsappUrl = "https://wa.me/5511998374338?text=Olá,%20Marcio!%20Vi%20seu
           <div class="w-full md:w-2/5 h-72 md:h-[420px] overflow-hidden relative">
             <img
               src={tech.image}
-              alt={`${tech.title} â€“ Marcio Trombeta Massoterapia`}
-              class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000"
+              alt={`${tech.title} – Marcio Trombeta Massoterapia`}
+              class={`w-full h-full ${tech.objectFit || 'object-cover'} grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000`}
               loading="lazy"
               referrerpolicy="no-referrer"
             />
@@ -113,10 +115,19 @@ const whatsappUrl = "https://wa.me/5511998374338?text=Olá,%20Marcio!%20Vi%20seu
   100% { transform: translateX(0); opacity: 0.55; }
 }
 .swipe-hint-arrow {
-  animation: swipe-hint 1.6s ease-in-out 0.6s 6;
+  animation: swipe-hint 1.6s ease-in-out 0.6s infinite;
 }
+
+@keyframes swipe-container {
+  0%, 100% { transform: translate(0, -50%); opacity: 0.9; }
+  50% { transform: translate(-20px, -50%); opacity: 1; }
+}
+.animate-swipe-container {
+  animation: swipe-container 2s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  .swipe-hint-arrow { animation: none; }
+  .swipe-hint-arrow, .animate-swipe-container { animation: none; }
 }
 </style>
 

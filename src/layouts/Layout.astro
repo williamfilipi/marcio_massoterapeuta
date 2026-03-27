@@ -1,5 +1,5 @@
 ---
-import WhatsAppButton from '../components/WhatsAppButton.astro';
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 
 export interface Props {
   title?: string;
@@ -9,12 +9,13 @@ export interface Props {
 }
 
 const {
-  title = 'Marcio Trombeta | Massoterapeuta Profissional em São Paulo',
-  description = 'Especialista em Massagem Relaxante, Shiatsu e Massagem Tântrica. Atendimento em São Paulo – Zona Norte. Agende sua sessão.',
-  image = 'https://i.ibb.co/m58SRpTL/Gemini-Generated-Image-frkq1frkq1frkq1f.png',
-  canonical = 'https://marciotrombeta.com.br/',
+  title = "Marcio Trombeta | Massoterapeuta Profissional em São Paulo",
+  description = "Especialista em Massagem Relaxante, Shiatsu e Massagem Tântrica. Atendimento em São Paulo – Zona Norte. Agende sua sessão.",
+  image = "https://i.ibb.co/m58SRpTL/Gemini-Generated-Image-frkq1frkq1frkq1f.png",
+  canonical = new URL(Astro.url.pathname, Astro.site || "https://marciotrombeta.com.br/").href,
 } = Astro.props;
 ---
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
@@ -24,7 +25,10 @@ const {
     <!-- Primary SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="massoterapeuta são paulo, massagem relaxante, shiatsu, massagem tÃ¢ntrica, zona norte sp, marcio trombeta" />
+    <meta
+      name="keywords"
+      content="massoterapeuta são paulo, massagem relaxante, shiatsu, massagem tÃ¢ntrica, zona norte sp, marcio trombeta"
+    />
     <meta name="author" content="Marcio Trombeta" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
@@ -45,9 +49,9 @@ const {
     <meta name="twitter:image" content={image} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/avif" href="/logoFundo.avif" />
-    <link rel="icon" type="image/png" href="/logoFundo.avif" />
-    <link rel="shortcut icon" href="/logosSfundo.avif" />
+    <link rel="icon" type="image/avif" href="/logoFundo.avif?v=2" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="shortcut icon" href="/logosSfundo.avif?v=2" />
 
     <!-- Fonts preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,7 +67,7 @@ const {
         "@context": "https://schema.org",
         "@type": ["HealthAndBeautyBusiness", "LocalBusiness"],
         "name": "Marcio Trombeta Massoterapia",
-        "description": "Especialista em Massagem Relaxante, Shiatsu e Massagem TÃ¢ntrica. Atendimento em SÃ£o Paulo â€“ Zona Norte.",
+        "description": "Especialista em Massagem Relaxante, Shiatsu e Massagem Tântrica. Atendimento em São Paulo – Zona Norte.",
         "url": "https://marciotrombeta.com.br",
         "telephone": "+55-11-99837-4338",
         "email": "Marciotrombeta@yahoo.com.br",
@@ -72,7 +76,7 @@ const {
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Rua Rozo Lagoa, 68",
-          "addressLocality": "SÃ£o Paulo",
+          "addressLocality": "São Paulo",
           "addressRegion": "SP",
           "addressCountry": "BR"
         },
@@ -84,18 +88,37 @@ const {
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "dayOfWeek": [
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday"
+            ],
             "opens": "10:00",
             "closes": "21:00"
           }
         ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "ServiÃ§os de Massoterapia",
+          "name": "Serviços de Massoterapia",
           "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem Relaxante" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Shiatsu" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Massagem TÃ¢ntrica" } }
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Massagem Relaxante"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Shiatsu" }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": { "@type": "Service", "name": "Massagem Tântrica" }
+            }
           ]
         },
         "founder": {
@@ -107,26 +130,38 @@ const {
     </script>
   </head>
 
-  <body class="bg-primary text-graphite font-sans selection:bg-terracotta/20 selection:text-terracotta">
+  <body
+    class="bg-primary text-graphite font-sans selection:bg-terracotta/20 selection:text-terracotta"
+  >
+    <!-- Skip to content link for keyboard users -->
+    <a 
+      href="#inicio" 
+      class="absolute left-1/2 -translate-y-[150%] -translate-x-1/2 transition-transform focus:translate-y-4 z-[100] bg-terracotta text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-sm outline-none"
+    >
+      Ir para o conteúdo principal
+    </a>
+
     <slot />
     <WhatsAppButton />
 
     <!-- Scroll-reveal Intersection Observer -->
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
+                entry.target.classList.add("visible");
               }
             });
           },
-          { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
+          { threshold: 0.1, rootMargin: "0px 0px -60px 0px" },
         );
-        document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
-          observer.observe(el);
-        });
+        document
+          .querySelectorAll(".reveal, .reveal-left, .reveal-right")
+          .forEach((el) => {
+            observer.observe(el);
+          });
       });
     </script>
   </body>

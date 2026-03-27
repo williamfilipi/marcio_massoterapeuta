@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary:    '#FCF9F5',
-        terracotta: '#BC7C67',
-        olive:      '#F1E6D9',
-        graphite:   '#2D2E2B',
-        accent:     '#F1E6D9',
+        primary:    'var(--color-primary)',
+        terracotta: 'var(--color-terracotta)',
+        olive:      'var(--color-olive)',
+        graphite:   'var(--color-graphite)',
+        accent:     'var(--color-accent)',
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],
