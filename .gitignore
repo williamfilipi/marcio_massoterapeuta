@@ -7,5 +7,4 @@ coverage/
 .env*
 !.env.example
 .geminiignore.md
-.astro
 ux_ui.md
