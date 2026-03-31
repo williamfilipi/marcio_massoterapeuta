@@ -1,20 +1,26 @@
 ---
+import { Image } from "astro:assets";
+import feedback2 from "../assets/images/feedback2.avif";
+import feedback3 from "../assets/images/feedback3.avif";
+import feedback4 from "../assets/images/feedback4.avif";
+import feedback5 from "../assets/images/feedback5.avif";
+
 const feedbacks = [
 
   {
-    image: "/feedback2.avif",
+    image: feedback2,
     alt: "Feedback de cliente 2"
   },
   {
-    image: "/feedback3.avif",
+    image: feedback3,
     alt: "Feedback de cliente 3"
   },
   {
-    image: "/feedback4.avif",
+    image: feedback4,
     alt: "Feedback de cliente 4"
   },
   {
-    image: "/feedback5.avif",
+    image: feedback5,
     alt: "Feedback de cliente 5"
   }
 ];
@@ -47,7 +53,7 @@ const feedbacks = [
               data-slide={index}
             >
               <div class="relative aspect-[16/9] overflow-hidden rounded-[24px] border border-graphite/10 hover:border-terracotta/30 transition-all duration-700">
-                <img 
+                <Image 
                   src={feedback.image}
                   alt={feedback.alt}
                   class="w-full h-full object-cover transition-transform duration-700 select-none"

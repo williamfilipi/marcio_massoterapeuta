@@ -1,5 +1,6 @@
 ---
-
+import { Image } from "astro:assets";
+import logoImage from "../assets/images/logosSfundo.avif";
 ---
 
 <header
@@ -8,8 +9,8 @@
 >
   <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
     <a href="#inicio" class="group flex items-center space-x-3">
-      <img
-        src="/logosSfundo.avif"
+      <Image
+        src={logoImage}
         alt="Marcio Trombeta Logo"
         class="h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-105"
       />

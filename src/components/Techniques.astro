@@ -1,21 +1,26 @@
 ---
+import { Image } from "astro:assets";
+import relaxanteImg from "../assets/images/massagemRelaxante.avif";
+import shiatsuImg from "../assets/images/shiatsu.avif";
+import tantricaImg from "../assets/images/tantrica.avif";
+
 const techniques = [
   {
     title: "Massagem Relaxante",
     description: "Técnica focada no alívio de tensões, redução do estresse e relaxamento profundo do corpo e da mente.",
-    image: "/massagemRelaxante.avif",
+    image: relaxanteImg,
     focus: "Alívio e Bem-Estar"
   },
   {
     title: "Shiatsu",
     description: "Terapia oriental tradicional que utiliza pressão dos dedos nos meridianos do corpo para equilibrar a energia vital e aliviar dores.",
-    image: "/shiatsu.avif",
+    image: shiatsuImg,
     focus: "Equilíbrio Energético"
   },
   {
   title: "Massagem Tântrica",
   description: "Prática terapêutica que busca o despertar da bioenergia e a conexão profunda do ser, expandindo a consciência e o prazer pela vida.",
-  image: "/tantrica.avif",
+  image: tantricaImg,
   focus: "Despertar da Bioenergia",
   // Alterado de 'object-bottom' para um valor customizado:
   objectFit: "object-cover object-bottom" 
@@ -60,12 +65,11 @@ const whatsappUrl = "https://wa.me/5511998374338?text=Olá,%20Marcio!%20Vi%20seu
         <div class="group relative min-w-[calc(100vw-4.5rem)] max-w-[calc(100vw-4.5rem)] shrink-0 snap-center bg-white rounded-[48px] overflow-hidden border border-olive/5 hover:border-terracotta/20 transition-all duration-700 flex flex-col md:min-w-0 md:max-w-none md:flex-row md:min-h-[420px] reveal">
           <!-- Image -->
           <div class="w-full md:w-2/5 h-72 md:h-[420px] overflow-hidden relative">
-            <img
+            <Image
               src={tech.image}
               alt={`${tech.title} – Marcio Trombeta Massoterapia`}
               class={`w-full h-full ${tech.objectFit || 'object-cover'} grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000`}
               loading="lazy"
-              referrerpolicy="no-referrer"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-olive/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-700"></div>
           </div>

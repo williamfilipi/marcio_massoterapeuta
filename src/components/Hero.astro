@@ -1,3 +1,7 @@
+---
+import { Image } from "astro:assets";
+import heroImage from "../assets/images/hero.avif";
+---
 <section
   id="inicio"
   class="relative min-h-screen flex items-center justify-center py-20"
@@ -5,15 +9,14 @@
   <!-- Background image with CSS zoom-pan animation -->
   <div class="absolute inset-0 -z-20 overflow-hidden">
     <div class="w-full h-full animate-zoom-pan">
-      <img
-        src="/hero.avif"
+      <Image
+        src={heroImage}
         alt="Ambiente Spa relaxante – Marcio Trombeta Massoterapia"
-        width="1920"
-        height="1080"
+        width={1920}
+        height={1080}
         class="w-full h-full object-cover"
         loading="eager"
         fetchpriority="high"
-        referrerpolicy="no-referrer"
       />
     </div>
     <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>

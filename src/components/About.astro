@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+import fotoProfissional from "../assets/images/fotoProfissional1.avif";
 ---
 <section id="sobre" class="py-32 bg-white relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-6 relative">
@@ -7,12 +9,12 @@
       <!-- Photo Column -->
       <div class="lg:col-span-5 relative reveal-left">
         <div class="relative aspect-[3/4] rounded-[80px] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.2)] border-8 border-white ring-1 ring-terracotta/20">
-          <img
-            src="/fotoProfissional1.avif"
+          <Image
+            src={fotoProfissional}
             alt="Marcio Trombeta – Massoterapeuta Profissional em São Paulo"
             class="w-full h-full object-cover object-[center_15%] grayscale-[0.1] hover:grayscale-0 transition-all duration-1000"
             loading="lazy"
-            referrerpolicy="no-referrer"
+            id="profissional-image"
           />
         </div>
         <!-- Spinning ring -->
