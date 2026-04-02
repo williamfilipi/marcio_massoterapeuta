@@ -11,10 +11,13 @@ export interface Props {
 }
 
 const {
-  title = "Marcio Trombeta | Massoterapeuta Profissional em São Paulo",
-  description = "Especialista em Massagem Relaxante, Shiatsu e Massagem Tântrica. Atendimento em São Paulo – Zona Norte. Agende sua sessão.",
+  title = "Marcio Trombeta | Massoterapeuta Profissional no Imirim, São Paulo",
+  description = "Especialista em Massagem Relaxante, Shiatsu e Massagem Tântrica. Atendimento na Zona Norte de São Paulo (Imirim e região). Agende sua sessão.",
   image = "https://i.ibb.co/m58SRpTL/Gemini-Generated-Image-frkq1frkq1frkq1f.png",
-  canonical = new URL(Astro.url.pathname, Astro.site || "https://marciotrombeta.com.br/").href,
+  canonical = new URL(
+    Astro.url.pathname,
+    Astro.site || "https://marciotrombeta.com.br/",
+  ).href,
 } = Astro.props;
 ---
 
@@ -29,7 +32,7 @@ const {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="massoterapeuta são paulo, massagem relaxante, shiatsu, massagem tÃ¢ntrica, zona norte sp, marcio trombeta"
+      content="massoterapeuta imirim, massagem zona norte sp, massagem relaxante imirim, shiatsu zona norte, massagem tântrica são paulo, marcio trombeta, clínica de massagem imirim, massagista imirim"
     />
     <meta name="author" content="Marcio Trombeta" />
     <meta name="robots" content="index, follow" />
@@ -136,8 +139,8 @@ const {
     class="bg-primary text-graphite font-sans selection:bg-terracotta/20 selection:text-terracotta"
   >
     <!-- Skip to content link for keyboard users -->
-    <a 
-      href="#inicio" 
+    <a
+      href="#inicio"
       class="absolute left-1/2 -translate-y-[150%] -translate-x-1/2 transition-transform focus:translate-y-4 z-[100] bg-terracotta text-white px-6 py-3 rounded-full font-bold uppercase tracking-widest text-sm outline-none"
     >
       Ir para o conteúdo principal
