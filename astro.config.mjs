@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://marciotrombeta.com.br',
+  site: 'https://massoterapeutamarciotrombeta.com',
   output: 'static',
   integrations: [tailwind(), sitemap()],
 });
